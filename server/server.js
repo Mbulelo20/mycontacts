@@ -1,6 +1,11 @@
 const express = require('express'); // 1.
-
+const connectDB = require('./config/db')
 const app = express(); //2. initialise express
+
+
+connectDB(); // connect to db
+
+app.use(express.json({extended: false})) // receives and parses body data
 
 app.get('/', (req, res) => res.send('Hello world')) // 5. add endpoint/route(s)
 
