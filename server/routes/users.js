@@ -37,21 +37,24 @@ router.post('/', checks, async (req, res) => {
         user.password = await bcrypt.hash(password, salt)
 
         await user.save();
-        const payload = {
-            user: {
+        //seting up payload and generating token
+        
+        const payload = {       // payload is the object to send in the token.
+            user: {             // we send the user id
                 id: user.id
             }
         }
 
+        // Generate the token
         jwt.sign(
             payload, 
             config.get('jwtSecret'), 
-            {expiresIn: 360000},
+            {expiresIn: 360000}, // optional
             (error, token) => {
                 if(error) throw error;
                 res.json({token})
             }
-            )
+        )
     } catch (error) {
         console.error(error.message);
         res.status(500).send('server error')
