@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 // import ContactContext from '../../context/contact/contactContext';
 
@@ -6,7 +6,7 @@ const ContactItem = ({ contact }) => {
 //   const contactContext = useContext(ContactContext);
 //   const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
-   const { _id, name, email, phone, type } = contact;
+   const { name, email, phone, type } = contact;
 
 //   const onDelete = () => {
 //     deleteContact(_id);

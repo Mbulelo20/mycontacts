@@ -1,20 +1,20 @@
   import React, { useReducer } from 'react';
-import  uuid from 'uuid';
+// import  uuid from 'uuid';
 import ContactContext from './contactContext';
 import contactReducer from './ContactReducer';
 
-import {
-    GET_CONTACTS,
-    ADD_CONTACT,
-    DELETE_CONTACT,
-    SET_CURRENT,
-    CLEAR_CURRENT,
-    UPDATE_CONTACT,
-    FILTER_CONTACTS,
-    CLEAR_CONTACTS,
-    CLEAR_FILTER,
-    CONTACT_ERROR} 
-    from '../types'
+// import {
+//     GET_CONTACTS,
+//     ADD_CONTACT,
+//     DELETE_CONTACT,
+//     SET_CURRENT,
+//     CLEAR_CURRENT,
+//     UPDATE_CONTACT,
+//     FILTER_CONTACTS,
+//     CLEAR_CONTACTS,
+//     CLEAR_FILTER,
+//     CONTACT_ERROR} 
+//     from '../types'
 
 const ContactState = props => {
     const initialState = {
@@ -42,7 +42,7 @@ const ContactState = props => {
             },
         ]
     };
-    const [state, dispatch] = useReducer(contactReducer, initialState);
+    const [state] = useReducer(contactReducer, initialState);
     return (
         <ContactContext.Provider
           value={{ contacts: state.contacts,
