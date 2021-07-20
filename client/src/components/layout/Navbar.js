@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const Navbar = ({ title, icon }) => {
