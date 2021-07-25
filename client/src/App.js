@@ -3,11 +3,16 @@ import React, {Fragment} from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './pages/Home.js';
 import About from './pages/About.js'
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
 import Navbar from './components/layout/Navbar';
 import ContactState from './context/contact/ContactState';
+import AuthState from './context/auth/AuthState';
+
 function App() {
   return (
-    <ContactState>
+    <AuthState>
+      <ContactState>
       <Router>
         <Fragment>
           <Navbar />
@@ -15,11 +20,14 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path='/about' component={About} />
+              <Route exact path ='/signup' component={Register} />
+              <Route exact path ='/login' component={Login} />
             </Switch>
           </div>
         </Fragment>
       </Router>
     </ContactState>
+    </AuthState>
   );
 }
 
