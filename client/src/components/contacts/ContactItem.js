@@ -1,3 +1,4 @@
+  
 import React from 'react';
 import PropTypes from 'prop-types';
 // import ContactContext from '../../context/contact/contactContext';
@@ -35,17 +36,17 @@ const ContactItem = ({ contact }) => {
           </li>
         )}
       </ul>
-      {/* <p>
+      <p>
         <button
           className='btn btn-dark btn-sm'
-          onClick={() => setCurrent(contact)}
+          // onClick={() => setCurrent(contact)}
         >
           Edit
         </button>
-        <button className='btn btn-danger btn-sm' onClick={onDelete}>
+        <button className='btn btn-danger btn-sm'>
           Delete
         </button>
-      </p> */}
+      </p>
     </div>
   );
 };
