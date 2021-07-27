@@ -23,13 +23,13 @@ router.post('/', checks, async (req, res) => {
     try {
         let user = await User.findOne({email})
         if(!user){
-            return res.status(400).json({msg: "User does not exist"})
+            return res.status(400).json({msg: "Invalid Credentials"})
         }
 
         // if user exists, check password
         const isMatch = await bcrypt.compare(password, user.password)
         if(!isMatch){
-            return res.status(400).json({msg: "Incorrect password"})
+            return res.status(400).json({msg: "Invalid Credentials"})
         }
         const payload = {       // payload is the object to send in the token.
             user: {             // we send the user id

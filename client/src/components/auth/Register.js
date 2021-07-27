@@ -1,10 +1,26 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import AlertContext from '../../context/alert/alertContext';
-const Register = () => {
+import AuthContext from '../../context/auth/authContext';
+
+
+const Register = (props) => {
 
     const alertContext = useContext(AlertContext)
+    const authContext = useContext(AuthContext);
 
+    const {register, error, clearErrors, isAuthenticated} = authContext;
     const {setAlert} = alertContext;
+
+    useEffect(() => {
+        if(isAuthenticated){
+            props.history.push('/')
+        }
+        if(error === 'User already exists'){
+            setAlert(error, 'danger');
+            clearErrors();
+        }
+        // eslint-disable-next-line
+    }, [error, isAuthenticated, props.history])
 
     const [user, setUser] = useState({
         name: '',
@@ -24,7 +40,9 @@ const Register = () => {
         }else if(password !== password2){
             setAlert('Passwords do not match', 'danger')
         }else{
-            alert("Success!")
+            register({ 
+                name, email, password
+            })
         }
     }
     return (
