@@ -8,7 +8,7 @@ connectDB(); // connect to db
 
 app.use(express.json({extended: false})) // receives and parses body data
 
-app.get('/', (req, res) => res.send('Hello world')) // 5. add endpoint/route(s)
+// app.get('/', (req, res) => res.send('Hello world')) // 5. add endpoint/route(s)
 
 // 5.2 define routes
 app.use('/api/users', require('./routes/users'))
